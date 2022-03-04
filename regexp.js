@@ -223,7 +223,7 @@ function quantifier(pattern, state) {
 		max = r[2] === undefined ? min : (r[3] === undefined ? Infinity : parseInt(r[3], 10));
 		state.length = r[0].length;
 	}
-	if (state.start + state.length < state.end && pattern.substr(state.start, 1) === '?')
+	if (state.start + state.length < state.end && pattern.substr(state.start + state.length, 1) === '?')
 		return (state.length += 1, {min: min, max: max, greedy: false});
 	return {min: min, max: max, greedy: true};
 }
